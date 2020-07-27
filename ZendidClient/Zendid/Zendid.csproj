@@ -117,6 +117,8 @@
     </ApplicationDefinition>
     <Compile Include="Models\LoginReceive.cs" />
     <Compile Include="Models\LoginRequest.cs" />
+    <Compile Include="Models\RegisterRequest.cs" />
+    <Compile Include="Models\RegisterReceive.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />
     <Compile Include="Models\DatabaseModel.cs" />

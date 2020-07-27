@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Zendid.Models;
+using ZendidCommons;
 
 namespace Zendid.Views
 {
@@ -40,14 +41,25 @@ namespace Zendid.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CreateUser(object sender, RoutedEventArgs e)
+        private async void CreateUserAsync(object sender, RoutedEventArgs e)
         {
-            string email = $"{EmailTextBox.Text}";
-            string password = $"{PasswordTextBox.Password}";
 
-            DatabaseModel database = DatabaseModel.Instance;
-            database.AddUser(email, password);
-            this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+            RegisterRequest registerRequest = new RegisterRequest
+            {
+                UserName = $"{EmailTextBox.Text}",
+                Password = $"{PasswordTextBox.Password}"
+            };
+            var res = await ApiClient.RequestServerPost<RegisterRequest, RegisterResponse>
+                ("https://zendid.in.kutiika.net/account/login", registerRequest);
+            //("https://localhost:44373/account/login", loginRequest).Result;
+            if (res.Status == "success")
+            {
+                this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+            }
+            else
+            {
+
+            }
         }
     }
 }

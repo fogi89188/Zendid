@@ -33,7 +33,7 @@
                                        Style="{StaticResource Main3}"/>
 
                             <!-- email -->
-                            <TextBlock Text="Enter email:" 
+                            <TextBlock Text="Enter username:" 
                                        HorizontalAlignment="Left"
                                        FontSize="15"
                                        Foreground="LightGray"
