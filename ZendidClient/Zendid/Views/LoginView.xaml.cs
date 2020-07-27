@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -37,21 +38,23 @@ namespace Zendid.Views
         }
 
         /// <summary>
-        /// gets the email and the password, checks if they are correct and then logs you in
+        /// log in
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Login(object sender, RoutedEventArgs e)
         {
-            string email = $"{EmailTextBox.Text}";
-            string password = $"{PasswordTextBox.Password}";
-            if (DatabaseModel.Instance.Login(email, password) == true)
+            LoginRequest loginRequest = new LoginRequest
             {
-                this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
-            }
-            else
+                UserName = $"{EmailTextBox.Text}",
+                Password = $"{PasswordTextBox.Password}"
+            };
+            var res = ApiClient.RequestServerPost<LoginRequest, LoginReceive>
+                ("https://zendid.in.kutiika.net/account/login", loginRequest).Result;
+            //("https://localhost:44373/account/login", loginRequest).Result;
+            if (res.Status == "success")
             {
-                WrongPasswordTextBlock.Text = "Invalid email or password.";
+                EmailTextBox.Text = res.Token;
             }
         }
     }
