@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ZendidServer.Models
+namespace ZendidCommons
 {
-    public class LoginRequest
+    public class RegisterRequest
     {
         public string UserName { get; set; }
         public string Password { get; set; }

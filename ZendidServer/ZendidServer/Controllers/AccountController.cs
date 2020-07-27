@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ZendidCommons;
 using ZendidServer.Data;
 using ZendidServer.Data.Models;
-using ZendidServer.Models;
 
 namespace ZendidServer.Controllers
 {
@@ -47,6 +47,28 @@ namespace ZendidServer.Controllers
                     ExpiresAt = DateTime.Now.AddMinutes(30)
                 });
                 await _context.SaveChangesAsync();
+            }
+            return response;
+        }
+
+
+        [HttpPost("register")]
+        public async Task<RegisterResponse> Register(RegisterRequest request)
+        {
+            RegisterResponse response = new RegisterResponse
+            {
+                Status = "fail",
+                ErrorCode = ZendidErrorCodes.OK
+            };
+
+            await DeleteExpiredTokens();
+
+            if (!_context.Users.Any(x => x.UserName.Contains(request.UserName)))
+            {
+
+            }
+            else {
+                response.ErrorCode = ZendidErrorCodes.UserAlreadyExists;
             }
             return response;
         }

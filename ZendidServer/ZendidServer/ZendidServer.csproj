@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ErrorCodesEnum.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Commons\ErrorCodesEnum.cs" Link="ErrorCodesEnum.cs" />
+    <Compile Include="..\..\Commons\LoginRequest.cs" Link="Models\LoginRequest.cs" />
+    <Compile Include="..\..\Commons\LoginResponse.cs" Link="Models\LoginResponse.cs" />
+    <Compile Include="..\..\Commons\RegisterRequest.cs" Link="Models\RegisterRequest.cs" />
+    <Compile Include="..\..\Commons\RegisterResponse.cs" Link="Models\RegisterResponse.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -13,6 +25,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZendidServer.Data\ZendidServer.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
