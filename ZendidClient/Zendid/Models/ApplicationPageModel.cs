@@ -19,5 +19,10 @@ namespace Zendid.Models
         /// the registration page
         /// </summary>
         Registration = 1,
+
+        /// <summary>
+        /// the main chat page
+        /// </summary>
+        Chat = 2,
     }
 }

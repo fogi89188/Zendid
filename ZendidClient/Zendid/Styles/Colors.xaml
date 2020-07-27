@@ -11,7 +11,13 @@
     <Color x:Key="Black">#000000</Color>
     <SolidColorBrush x:Key="BackgroundBlackBrush" Color="{StaticResource Black}" />
 
-    <Color x:Key="Gray">#3d3d3d</Color>
+    <Color x:Key="Gray">#262626</Color>
     <SolidColorBrush x:Key="BackgroundGrayBrush" Color="{StaticResource Gray}" />
+
+    <Color x:Key="LightGray">#292929</Color>
+    <SolidColorBrush x:Key="BackgroundLightGrayBrush" Color="{StaticResource LightGray}" />
+
+    <Color x:Key="Light">#2e2e2e</Color>
+    <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource Light}" />
 
 </ResourceDictionary>

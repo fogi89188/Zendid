@@ -27,6 +27,9 @@ namespace Zendid.ValueConverters
                 case ApplicationPageModel.Registration:
                     return new RegisterView();
 
+                case ApplicationPageModel.Chat:
+                    return new ChatView();
+
                 default:
                     Debugger.Break();
                     return null;

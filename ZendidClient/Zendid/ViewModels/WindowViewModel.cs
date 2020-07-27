@@ -46,7 +46,7 @@ namespace Zendid.ViewModels
         /// </summary>
         public double windowMinimumHeight { get; set; } = 630;
 
-        public int InnerContentPadding { get; set; } = 15;
+        public int InnerContentPadding { get; set; } = 0;
 
         /// <summary>
         /// the size of the resize boreder around the window
@@ -111,7 +111,7 @@ namespace Zendid.ViewModels
         /// <summary>
         /// the current page of application
         /// </summary>
-        public ApplicationPageModel CurrentPage { get; set; } = ApplicationPageModel.Login;
+        public ApplicationPageModel CurrentPage { get; set; } = ApplicationPageModel.Chat;
 
         #endregion
 
