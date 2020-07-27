@@ -9,6 +9,7 @@ namespace ZendidCommons
     {
         public string Token { get; set; }
         public string MessageStr { get; set; }
+        public DateTime TimeOfLastUpdate { get; set; }
 
     }
 }

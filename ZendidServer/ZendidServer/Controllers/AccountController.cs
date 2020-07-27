@@ -13,17 +13,11 @@ namespace ZendidServer.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AccountController : ControllerBase
+    public class AccountController : BaseController
     {
-        private readonly ILogger<AccountController> _logger;
-
-        private readonly ApplicationDbContext _context;
-
         public AccountController(ILogger<AccountController> logger, ApplicationDbContext context)
-        {
-            _logger = logger;
-            _context = context;
-        }
+            : base(logger, context)
+        { }
 
         [HttpPost("login")]
         public async Task<LoginResponse> Login(LoginRequest request)
@@ -85,11 +79,5 @@ namespace ZendidServer.Controllers
             return token;
         }
 
-        private async Task DeleteExpiredTokens()
-        {
-            var tokens = _context.Tokens.Where(x => x.ExpiresAt < DateTime.Now.AddHours(3));
-            _context.Tokens.RemoveRange(tokens);
-            await _context.SaveChangesAsync();
-        }
     }
 }

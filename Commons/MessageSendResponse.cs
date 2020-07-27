@@ -9,5 +9,7 @@ namespace ZendidCommons
     {
         public string Status { get; set; }
         public ZendidErrorCodes ErrorCode { get; set; }
+        public ICollection<Message> Messages { get; set; }
+        public DateTime TimeOfLastUpdate { get; set; }
     }
 }
