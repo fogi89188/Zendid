@@ -23,5 +23,27 @@ namespace ZendidServer.Controllers
             _logger = logger;
             _context = context;
         }
+
+        /*
+        [HttpPost("chatroom")]
+        public async Task<LoginResponse> Login(LoginRequest request)
+        {
+            LoginResponse response = new LoginResponse
+            {
+                Status = "fail"
+            };
+
+            await DeleteExpiredTokens();
+
+            var user = _context.Users.FirstOrDefault(x => x.UserName == request.UserName && x.Password == request.Password);
+            if (user != null)
+            {
+                response.Status = "success";
+                response.Token = GenerateUserToken(user);
+                await _context.SaveChangesAsync();
+            }
+            return response;
+        }*/
+
     }
 }
