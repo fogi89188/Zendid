@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace ZendidCommons
 {
-    public class RegisterRequest
+    public class ChatUpdateRequest
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public DateTime TimeOfLastUpdate { get; set; }
+        public string Token { get; set; }
     }
 }

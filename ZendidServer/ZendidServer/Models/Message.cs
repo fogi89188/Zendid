@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace ZendidCommons
 {
-    public class MessageSendRequest
+    public class Message
     {
-        public string Token { get; set; }
+        public string UserSender { get; set; }
         public string MessageStr { get; set; }
-
+        public DateTime Time { get; set; }
     }
 }

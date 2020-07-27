@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace ZendidCommons
 {
-    public class MessageSendResponse
+    public class ChatUpdateRequest
     {
-        public string Status { get; set; }
-        public ZendidErrorCodes ErrorCode { get; set; }
+        public DateTime TimeOfLastUpdate { get; set; }
     }
 }

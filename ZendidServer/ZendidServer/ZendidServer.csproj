@@ -9,9 +9,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="..\..\Commons\ChatUpdateRequest.cs" Link="Models\ChatUpdateRequest.cs" />
+    <Compile Include="..\..\Commons\ChatUpdateResponse.cs" Link="Models\ChatUpdateResponse.cs" />
     <Compile Include="..\..\Commons\ErrorCodesEnum.cs" Link="ErrorCodesEnum.cs" />
     <Compile Include="..\..\Commons\LoginRequest.cs" Link="Models\LoginRequest.cs" />
     <Compile Include="..\..\Commons\LoginResponse.cs" Link="Models\LoginResponse.cs" />
+    <Compile Include="..\..\Commons\MessageSendRequest.cs" Link="Models\MessageSendRequest.cs" />
+    <Compile Include="..\..\Commons\MessageSendResponse.cs" Link="Models\MessageSendResponse.cs" />
     <Compile Include="..\..\Commons\RegisterRequest.cs" Link="Models\RegisterRequest.cs" />
     <Compile Include="..\..\Commons\RegisterResponse.cs" Link="Models\RegisterResponse.cs" />
   </ItemGroup>
@@ -25,10 +29,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ZendidServer.Data\ZendidServer.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
