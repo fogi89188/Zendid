@@ -39,13 +39,7 @@ namespace ZendidServer.Controllers
             if (user != null)
             {
                 response.Status = "success";
-                response.Token = Guid.NewGuid().ToString();
-                _context.Tokens.Add(new Token
-                {
-                    TokenValue = response.Token,
-                    User = user,
-                    ExpiresAt = DateTime.Now.AddMinutes(30)
-                });
+                response.Token = GenerateUserToken(user);
                 await _context.SaveChangesAsync();
             }
             return response;
@@ -61,16 +55,34 @@ namespace ZendidServer.Controllers
                 ErrorCode = ZendidErrorCodes.OK
             };
 
-            await DeleteExpiredTokens();
-
             if (!_context.Users.Any(x => x.UserName.Contains(request.UserName)))
             {
-
+                var user = new User
+                {
+                    UserName = request.UserName,
+                    Password = request.Password,
+                };
+                response.Status = "success";
+                response.Token = GenerateUserToken(user);
+                await _context.SaveChangesAsync();
             }
-            else {
+            else
+            {
                 response.ErrorCode = ZendidErrorCodes.UserAlreadyExists;
             }
             return response;
+        }
+
+        private string GenerateUserToken(User user)
+        {
+            var token = Guid.NewGuid().ToString();
+            _context.Tokens.Add(new Token
+            {
+                TokenValue = token,
+                User = user,
+                ExpiresAt = DateTime.Now.AddMinutes(30)
+            });
+            return token;
         }
 
         private async Task DeleteExpiredTokens()
