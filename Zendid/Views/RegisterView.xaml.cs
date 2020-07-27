@@ -47,7 +47,7 @@ namespace Zendid.Views
 
             DatabaseModel database = DatabaseModel.Instance;
             database.AddUser(email, password);
-            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Zendid.Views
             string password = $"{PasswordTextBox.Password}";
             if (DatabaseModel.Instance.Login(email, password) == true)
             {
-                this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
             }
             else
             {
