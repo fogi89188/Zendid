@@ -5,6 +5,6 @@ namespace ZendidCommons
     {
         OK = 0,
         UserAlreadyExists = 101,
-
+        TokenExpired = 909
     }
 }

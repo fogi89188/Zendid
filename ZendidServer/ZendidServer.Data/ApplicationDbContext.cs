@@ -13,6 +13,7 @@ namespace ZendidServer.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<UserFriend> UserFriends { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,18 @@ namespace ZendidServer.Data
             modelBuilder.Entity<User>()
                 .HasMany(x => x.Tokens)
                 .WithOne(x => x.User);
+
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Friends)
+                .WithOne(x => x.User);
+
+            modelBuilder.Entity<UserFriend>()
+                .HasOne(x => x.Friend)
+                .WithMany(x => x.FriendOf);
+
+
+
+
         }
     }
 }

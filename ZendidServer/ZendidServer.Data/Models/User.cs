@@ -10,5 +10,7 @@ namespace ZendidServer.Data.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public ICollection<Token> Tokens { get; set; }
+        public ICollection<UserFriend> Friends { get; set; }
+        public ICollection<UserFriend> FriendOf { get; set; }
     }
 }
