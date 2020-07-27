@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Zendid.Models;
+using ZendidCommons;
 
 namespace Zendid.Views
 {
@@ -38,7 +39,7 @@ namespace Zendid.Views
         }
 
         /// <summary>
-        /// log in
+        /// log in with teh given email and password
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -49,12 +50,16 @@ namespace Zendid.Views
                 UserName = $"{EmailTextBox.Text}",
                 Password = $"{PasswordTextBox.Password}"
             };
-            var res = await ApiClient.RequestServerPost<LoginRequest, LoginReceive>
+            var res = await ApiClient.RequestServerPost<LoginRequest, LoginResponse>
                 ("https://zendid.in.kutiika.net/account/login", loginRequest);
             //("https://localhost:44373/account/login", loginRequest).Result;
             if (res.Status == "success")
             {
-                EmailTextBox.Text = res.Token;
+                this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
+            }
+            else
+            {
+                WrongPasswordTextBlock.Text = "Invalid username or password!";
             }
         }
     }
