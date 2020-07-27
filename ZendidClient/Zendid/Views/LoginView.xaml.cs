@@ -42,15 +42,15 @@ namespace Zendid.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Login(object sender, RoutedEventArgs e)
+        private async void Login(object sender, RoutedEventArgs e)
         {
             LoginRequest loginRequest = new LoginRequest
             {
                 UserName = $"{EmailTextBox.Text}",
                 Password = $"{PasswordTextBox.Password}"
             };
-            var res = ApiClient.RequestServerPost<LoginRequest, LoginReceive>
-                ("https://zendid.in.kutiika.net/account/login", loginRequest).Result;
+            var res = await ApiClient.RequestServerPost<LoginRequest, LoginReceive>
+                ("https://zendid.in.kutiika.net/account/login", loginRequest);
             //("https://localhost:44373/account/login", loginRequest).Result;
             if (res.Status == "success")
             {
