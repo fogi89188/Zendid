@@ -115,10 +115,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\LoginReceive.cs" />
-    <Compile Include="Models\LoginRequest.cs" />
-    <Compile Include="Models\RegisterRequest.cs" />
-    <Compile Include="Models\RegisterReceive.cs" />
+    <Compile Include="..\..\Commons\ErrorCodesEnum.cs">
+      <Link>ErrorCodesEnum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\LoginRequest.cs">
+      <Link>Models\LoginRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\LoginResponse.cs">
+      <Link>Models\LoginResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\RegisterRequest.cs">
+      <Link>Models\RegisterRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\RegisterResponse.cs">
+      <Link>Models\RegisterResponse.cs</Link>
+    </Compile>
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />
     <Compile Include="Models\DatabaseModel.cs" />

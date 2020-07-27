@@ -41,7 +41,7 @@ namespace Zendid.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void CreateUserAsync(object sender, RoutedEventArgs e)
+        private async void CreateUser(object sender, RoutedEventArgs e)
         {
 
             RegisterRequest registerRequest = new RegisterRequest
@@ -50,8 +50,8 @@ namespace Zendid.Views
                 Password = $"{PasswordTextBox.Password}"
             };
             var res = await ApiClient.RequestServerPost<RegisterRequest, RegisterResponse>
-                ("https://zendid.in.kutiika.net/account/login", registerRequest);
-            //("https://localhost:44373/account/login", loginRequest).Result;
+                ("https://zendid.in.kutiika.net/account/register", registerRequest);
+            //("https://localhost:44373/account/register", loginRequest).Result;
             if (res.Status == "success")
             {
                 this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));

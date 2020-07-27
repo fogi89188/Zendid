@@ -9,6 +9,19 @@
       Title="ChatView">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <!-- Friends Tab View -->
+        <Border Margin="5" CornerRadius="15" BorderThickness="0" Background="{StaticResource BackgroundDarkBrush}">
+            <StackPanel>
+                <Border Margin="5" CornerRadius="10" BorderThickness="0" Background="{StaticResource BackgroundVeryDarkBrush}">
+                    <StackPanel>
+                        <TextBlock Text="Welcome" Style="{StaticResource Main2}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
