@@ -34,6 +34,7 @@ namespace ZendidServer.Controllers
             {
                 response.Status = "success";
                 response.Token = GenerateUserToken(user);
+                response.ServerTime = DateTime.Now;
                 await _context.SaveChangesAsync();
             }
             return response;
@@ -58,6 +59,8 @@ namespace ZendidServer.Controllers
                 };
                 response.Status = "success";
                 response.Token = GenerateUserToken(user);
+                response.TimeOfLastUpdate = DateTime.Now;
+
                 await _context.SaveChangesAsync();
             }
             else
