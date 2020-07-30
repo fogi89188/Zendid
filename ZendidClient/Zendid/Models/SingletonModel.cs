@@ -6,6 +6,8 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
+using System.Windows.Documents;
 using System.Windows.Interop;
 using System.Windows.Media.Media3D;
 using Zendid.Chat;
@@ -22,6 +24,7 @@ namespace Zendid.Models
         public static string token = "";
         public static DateTime timeOfLastUpdate = DateTime.Now;
         private static ObservableCollection<ZendidCommons.Message> messages = new ObservableCollection<ZendidCommons.Message>();
+        public static ObservableCollection<string> Users = new ObservableCollection<string>();
 
         static SingletonModel()
         {
@@ -34,7 +37,7 @@ namespace Zendid.Models
 
         public static SingletonModel Instance { get { return instance; } set { instance = value; } }
 
-        public static ObservableCollection<ZendidCommons.Message> Messages { get => messages; set { messages = value;  } }
+        public static ObservableCollection<ZendidCommons.Message> Messages { get => messages; set { messages = value; } }
 
         public async void UpdateRequest()
         {
@@ -56,6 +59,8 @@ namespace Zendid.Models
                 Item = SingletonModel.Messages;
             }
         }
+
+
         public async void SendRequest(string message)
         {
             // request a chat update
@@ -74,6 +79,9 @@ namespace Zendid.Models
                     SingletonModel.Messages.Add(item);
                 }
                 SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
+                ObservableCollection<string> myCollection = new ObservableCollection<string>(res.Users);
+                SingletonModel.Users = myCollection;
+                Items = SingletonModel.Users;
                 Item = SingletonModel.Messages;
             }
         }

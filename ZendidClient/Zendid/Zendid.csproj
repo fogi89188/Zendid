@@ -162,6 +162,7 @@
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ExtensionMethods.cs" />
+    <Compile Include="Models\ObservableCollection.cs" />
     <Compile Include="Models\SingletonModel.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />

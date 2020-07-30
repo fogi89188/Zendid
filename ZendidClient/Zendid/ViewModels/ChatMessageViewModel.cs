@@ -15,7 +15,7 @@ namespace Zendid.ViewModels
     /// <summary>
     /// a view model for the chat message thread
     /// </summary>
-    class ChatMessageViewModel : BaseViewModel
+    class ChatMessageViewModel : ChatListViewModel
     {
         public ObservableCollection<Message> Item { get; set; }
 

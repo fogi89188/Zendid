@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zendid.Models;
 using Zendid.ViewModels;
 
 namespace Zendid.Chat
@@ -20,22 +21,7 @@ namespace Zendid.Chat
 
         public ChatListDesignModel()
         {
-            Items = new ObservableCollection<ChatListItemViewModel>
-            {
-                // chat list item list add
-                new ChatListItemViewModel
-                {
-                    Name = "Viktor"
-                },
-                new ChatListItemViewModel
-                {
-                    Name = "Niki"
-                },
-                new ChatListItemViewModel
-                {
-                    Name = "Max"
-                },
-            };
+            Items = SingletonModel.Users;
         }
 
         #endregion

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zendid.Models;
 using Zendid.ViewModels;
 
 namespace Zendid.Chat
@@ -19,7 +20,7 @@ namespace Zendid.Chat
 
         public ChatListItemDesignModel()
         {
-            Name = "userName";
+            Name = SingletonModel.Users.ToString();
         }
 
         #endregion
