@@ -11,8 +11,8 @@ using ZendidServer.Data.Models;
 
 namespace ZendidServer.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ChatController : BaseController
     {
         public ChatController(ILogger<AccountController> logger, ApplicationDbContext context)
