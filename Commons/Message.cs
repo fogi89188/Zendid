@@ -5,8 +5,12 @@ using System.Threading.Tasks;
 
 namespace ZendidCommons
 {
-    public class ChatUpdateRequest
+    public class Message
     {
-        public DateTime TimeOfLastUpdate { get; set; }
+        public string UserSender { get; set; }
+
+        public string MessageStr { get; set; }
+
+        public DateTime Time { get; set; }
     }
 }

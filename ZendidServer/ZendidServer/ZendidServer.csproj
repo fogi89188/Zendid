@@ -14,6 +14,7 @@
     <Compile Include="..\..\Commons\ErrorCodesEnum.cs" Link="ErrorCodesEnum.cs" />
     <Compile Include="..\..\Commons\LoginRequest.cs" Link="Models\LoginRequest.cs" />
     <Compile Include="..\..\Commons\LoginResponse.cs" Link="Models\LoginResponse.cs" />
+    <Compile Include="..\..\Commons\Message.cs" Link="Models\Message.cs" />
     <Compile Include="..\..\Commons\MessageSendRequest.cs" Link="Models\MessageSendRequest.cs" />
     <Compile Include="..\..\Commons\MessageSendResponse.cs" Link="Models\MessageSendResponse.cs" />
     <Compile Include="..\..\Commons\RegisterRequest.cs" Link="Models\RegisterRequest.cs" />
