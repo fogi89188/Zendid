@@ -11,14 +11,16 @@
         <Grid x:Name="myGrid"  VerticalAlignment="Top"
               Margin="0 0 0 120"
                 DataContext="{x:Static local1:ChatMessageListDesignModel.Instance}">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ItemsControl Visibility="Visible" ItemsSource="{Binding Item}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <local1:ChatMessageListItemControl/>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+            <ScrollViewer x:Name="scrollViewer"  VerticalScrollBarVisibility="Auto">
+                <Border x:Name="contentCtrl">
+                    <ItemsControl Visibility="Visible" ItemsSource="{Binding Item}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local1:ChatMessageListItemControl/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Border>
             </ScrollViewer>
         </Grid>
         <StackPanel VerticalAlignment="Bottom">

@@ -40,6 +40,7 @@ namespace Zendid.Chat.ChatMessage
         private void Load(object sender, EventArgs e)
         {
             SingletonModel.Instance.UpdateRequest();
+            this.scrollViewer.ScrollToEnd();
             ExtensionMethods.Refresh(this);
         }
 
