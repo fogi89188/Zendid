@@ -130,13 +130,19 @@
     <Compile Include="..\..\Commons\RegisterResponse.cs">
       <Link>Models\RegisterResponse.cs</Link>
     </Compile>
-    <Compile Include="Controls\Chat\ChatListControl.xaml.cs">
+    <Compile Include="Controls\Chat\ChatList\ChatListControl.xaml.cs">
       <DependentUpon>ChatListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Chat\ChatListItemControl.xaml.cs">
+    <Compile Include="Controls\Chat\ChatList\ChatListItemControl.xaml.cs">
       <DependentUpon>ChatListItemControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Chat\ChatListDesignModel.cs" />
+    <Compile Include="Controls\Chat\ChatList\ChatListDesignModel.cs" />
+    <Compile Include="Controls\Chat\ChatMessage\ChatMessageListControl.xaml.cs">
+      <DependentUpon>ChatMessageListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml.cs">
+      <DependentUpon>ChatMessageListItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
@@ -146,11 +152,16 @@
     <Compile Include="Services\LoggingHandler.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\TimeToDisplayTimeConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommandViewModel.cs" />
-    <Compile Include="Controls\Chat\ChatListItemDesignModel.cs" />
+    <Compile Include="Controls\Chat\ChatList\ChatListItemDesignModel.cs" />
     <Compile Include="ViewModels\ChatListItemViewModel.cs" />
     <Compile Include="ViewModels\ChatListViewModel.cs" />
+    <Compile Include="ViewModels\ChatMessageListItemViewModel.cs" />
+    <Compile Include="ViewModels\ChatMessageViewModel.cs" />
+    <Compile Include="Controls\Chat\ChatMessage\ChatMessageListDesignModel.cs" />
+    <Compile Include="Controls\Chat\ChatMessage\ChatMessageListItemDesignModel.cs" />
     <Compile Include="ViewModels\LoginControllerViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="Views\ChatView.xaml.cs">
@@ -162,11 +173,19 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\Chat\ChatListControl.xaml">
+    <Page Include="Controls\Chat\ChatList\ChatListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Chat\ChatListItemControl.xaml">
+    <Page Include="Controls\Chat\ChatList\ChatListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\ChatMessage\ChatMessageListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\ChatMessage\ChatMessageListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +288,7 @@
     <Resource Include="Images\Social\chat icon.png" />
     <Resource Include="Images\Social\social icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.6.1.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.1.1\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

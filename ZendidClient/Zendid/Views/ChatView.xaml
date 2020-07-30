@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Zendid" xmlns:local1="clr-namespace:Zendid.Chat"
+      xmlns:local="clr-namespace:Zendid" 
+      xmlns:local1="clr-namespace:Zendid.Chat.ChatMessage" 
+      xmlns:local2="clr-namespace:Zendid.Chat"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChatView">
@@ -31,16 +33,18 @@
             <!-- Friends tab Side Menu -->
             <local:SideMenuControl Grid.Row="1" Loaded="SideMenuControl_Loaded">
                 <Border Grid.Row="1" Background="{StaticResource BackgroundLightGrayBrush}">
-                    <local1:ChatListControl>
+                    <local2:ChatListControl>
 
-                    </local1:ChatListControl>
+                    </local2:ChatListControl>
                 </Border>
             </local:SideMenuControl>
         </Grid>
 
         <!-- Chat Tab View -->
         <Border Grid.Column="1" Margin="10" Background="{StaticResource BackgroundLightBrush}" CornerRadius="30">
-
+            <local1:ChatMessageListControl>
+                
+            </local1:ChatMessageListControl>
         </Border>
     </Grid>
 </Page>

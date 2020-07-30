@@ -19,7 +19,7 @@ namespace Zendid.Chat
 
         public ChatListItemDesignModel()
         {
-            Name = "Niki";
+            Name = "userName";
         }
 
         #endregion
