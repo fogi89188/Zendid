@@ -11,6 +11,6 @@ namespace ZendidCommons
 
         public string MessageStr { get; set; }
 
-        public DateTime Time { get; set; }
+        public DateTimeOffset Time { get; set; }
     }
 }
