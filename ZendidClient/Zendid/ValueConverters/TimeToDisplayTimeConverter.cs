@@ -15,7 +15,7 @@ namespace Zendid.ValueConverters
         {
             var time = (DateTimeOffset)value;
 
-            if (time.Date == DateTimeOffset.UtcNow.Date)
+            if (time.Date == DateTime.Now.Date)
                 return time.ToLocalTime().ToString("HH:mm");
 
             return time.ToLocalTime().ToString("HH:mm, MMM yyyy");

@@ -18,6 +18,8 @@ using Zendid.ViewModels;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Media.TextFormatting;
+using System.Windows.Threading;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace Zendid.Chat.ChatMessage
 {
@@ -29,14 +31,19 @@ namespace Zendid.Chat.ChatMessage
         public ChatMessageListControl()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += Load;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
         }
 
-        private void Load(object sender, RoutedEventArgs e)
+        private void Load(object sender, EventArgs e)
         {
-
             SingletonModel.Instance.UpdateRequest();
             ExtensionMethods.Refresh(this);
         }
+
+
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
