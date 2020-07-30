@@ -30,6 +30,11 @@ namespace Zendid.Chat.ChatMessage
         private void Load(object sender, RoutedEventArgs e)
         {
             SingletonModel.Instance.UpdateRequest();
+            ExtensionMethods.Refresh(this);
+        }
+        void Refresh(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

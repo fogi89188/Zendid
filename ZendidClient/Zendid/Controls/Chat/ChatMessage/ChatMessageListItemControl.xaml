@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Zendid.Chat"
              xmlns:local1="clr-namespace:Zendid.ValueConverters"
+             xmlns:local2="clr-namespace:ZendidCommons"
              mc:Ignorable="d"  d:DesignWidth="400">
     <Border Padding="5" Background="Transparent"
             d:DataContext="{x:Static local:ChatMessageListItemDesignModel.Instance}">
-        <Grid>
+        <Grid Background="Red">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5*"/>
@@ -41,6 +42,7 @@
             <Border CornerRadius="10"
                     Background="WhiteSmoke"
                     Margin="15 0 0 0"
+                    x:Name="MessageTextDisplay"
                     Grid.Row="1"
                     Padding="10"
                     HorizontalAlignment="Left"

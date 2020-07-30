@@ -27,7 +27,6 @@ namespace Zendid
             InitializeComponent();
 
             this.DataContext = new WindowViewModel(this);
-            DatabaseModel.Initialize();
         }
     }
 }

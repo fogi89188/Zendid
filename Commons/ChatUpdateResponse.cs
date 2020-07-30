@@ -11,7 +11,7 @@ namespace ZendidCommons
 
         public ZendidErrorCodes ErrorCode { get; set; }
 
-        public ICollection<Message> Messages { get; set; }
+        public List<Message> Messages { get; set; }
 
         public DateTime TimeOfLastUpdate { get; set; }
     }

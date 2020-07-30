@@ -111,7 +111,7 @@ namespace Zendid.ViewModels
         /// <summary>
         /// the current page of application
         /// </summary>
-        public ApplicationPageModel CurrentPage { get; set; } = ApplicationPageModel.Chat;
+        public ApplicationPageModel CurrentPage { get; set; } = ApplicationPageModel.Login;
 
         #endregion
 

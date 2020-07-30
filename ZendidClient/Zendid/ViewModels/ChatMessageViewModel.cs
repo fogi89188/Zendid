@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using Zendid.Chat;
 using Zendid.Models;
 using Zendid.ViewModels.Base;
@@ -15,6 +16,7 @@ namespace Zendid.ViewModels
     /// </summary>
     class ChatMessageViewModel : BaseViewModel
     {
-        public ICollection<Message> Item = SingletonModel.Messages;
+        public List<Message> Item { get { return SingletonModel.Messages; } set { SingletonModel.Messages = value; } }
+
     }
 }

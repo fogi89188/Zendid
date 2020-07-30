@@ -5,6 +5,9 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Interop;
+using System.Windows.Media.Media3D;
+using Zendid.Chat;
 using ZendidCommons;
 
 namespace Zendid.Models
@@ -15,7 +18,8 @@ namespace Zendid.Models
 
         public static string token = "";
         public static DateTime timeOfLastUpdate = DateTime.Now;
-        public static ICollection<ZendidCommons.Message> Messages;
+        private static List<ZendidCommons.Message> messages;
+
         static SingletonModel()
         {
 
@@ -23,10 +27,10 @@ namespace Zendid.Models
 
         private SingletonModel()
         {
-
         }
 
         public static SingletonModel Instance { get { return instance; } set { instance = value; } }
+        public static List<ZendidCommons.Message> Messages { get => messages; set => messages = value; }
 
         public async void UpdateRequest()
         {
@@ -34,13 +38,14 @@ namespace Zendid.Models
             ChatUpdateRequest chatUpdateRequest = new ChatUpdateRequest
             {
                 Token = SingletonModel.token,
-                TimeOfLastUpdate = DateTime.Now
+                TimeOfLastUpdate = SingletonModel.timeOfLastUpdate
             };
             var res = await ApiClient.RequestServerPost<ChatUpdateRequest, ChatUpdateResponse>
                 ("https://zendid.in.kutiika.net/chat/update", chatUpdateRequest);
             if (res.Status == "success")
             {
                 SingletonModel.Messages = res.Messages;
+                SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
             }
         }
     }

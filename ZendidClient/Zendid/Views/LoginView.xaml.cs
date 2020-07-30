@@ -53,6 +53,7 @@ namespace Zendid.Views
             var res = await ApiClient.RequestServerPost<LoginRequest, LoginResponse>
                 ("https://zendid.in.kutiika.net/account/login", loginRequest);
             SingletonModel.token = res.Token;
+            SingletonModel.timeOfLastUpdate = res.ServerTime;
             //("https://localhost:44373/account/login", loginRequest).Result;
             if (res.Status == "success")
             {

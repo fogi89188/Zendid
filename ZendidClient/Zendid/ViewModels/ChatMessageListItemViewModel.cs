@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZendidCommons;
 using Zendid.Models;
+using System.Collections;
 
 namespace Zendid.ViewModels
 {
@@ -15,10 +16,10 @@ namespace Zendid.ViewModels
         /// a view model for each chat message thread item in a chat thread
         /// </summary>
 
-        public static Message serverMessage = new Message();
+        public static Message message = new Message();
 
-        public string SenderName { get { return serverMessage.UserSender; } set {serverMessage.UserSender = value; } }
-        public DateTimeOffset MessageSentTime  { get { return serverMessage.Time; } set { serverMessage.Time = value; } }
-        public string Message { get { return serverMessage.MessageStr; } set { serverMessage.MessageStr = value; } }
+        public string SenderName { get { return message.UserSender; } set {message.UserSender = value; } }
+        public DateTimeOffset MessageSentTime  { get { return message.Time; } set { message.Time = value; } }
+        public string Message { get { return message.MessageStr; } set { message.MessageStr = value; } }
     }
 }
