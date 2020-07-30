@@ -22,7 +22,7 @@ namespace ZendidServer.Controllers
         }
         protected async Task DeleteExpiredTokens()
         {
-            var tokens = _context.Tokens.Where(x => x.ExpiresAt < DateTime.Now.AddHours(3));
+            var tokens = _context.Tokens.Where(x => x.ExpiresAt < DateTime.Now);
             _context.Tokens.RemoveRange(tokens);
             await _context.SaveChangesAsync();
         }
