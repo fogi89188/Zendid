@@ -39,7 +39,10 @@ namespace ZendidServer.Controllers
 
             response.TimeOfLastUpdate = DateTime.Now;
             List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
-            var messages = _context.Messages.Where(x => x.SendTime > request.TimeOfLastUpdate).Select(x => new ZendidCommons.Message
+            var messages = _context.Messages
+                .Where(x => x.SendTime > request.TimeOfLastUpdate)
+                .OrderBy(x => x.SendTime)
+                .Select(x => new ZendidCommons.Message
             {
                 MessageStr = x.MessageStr,
                 UserSender = x.UserName,
@@ -82,7 +85,10 @@ namespace ZendidServer.Controllers
             response.TimeOfLastUpdate = DateTime.Now;
 
             List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
-            var messages = _context.Messages.Where(x => x.SendTime > request.TimeOfLastUpdate).Select(x => new ZendidCommons.Message
+            var messages = _context.Messages
+                .Where(x => x.SendTime > request.TimeOfLastUpdate)
+                .OrderBy(x => x.SendTime)
+                .Select(x => new ZendidCommons.Message
             {
                 MessageStr = x.MessageStr,
                 UserSender = x.UserName,
