@@ -32,15 +32,39 @@
                     Style="{StaticResource System}">
 
             </Button>
-            <TextBox VerticalAlignment="Bottom"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox VerticalAlignment="Bottom"
                      Keyboard.KeyDown="TextBox_KeyDown"
                      x:Name="TextBox"
                      Text="" Style="{StaticResource Credentials}"
-                     Margin="30 0 30 30">
-                <TextBox.InputBindings>
-                    <KeyBinding Gesture="Enter" Command="{Binding Load}"/>
-                </TextBox.InputBindings>
-            </TextBox>
+                     Margin="30 0 70 30">
+                    <TextBox.InputBindings>
+                        <KeyBinding Gesture="Enter" Command="{Binding Load}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Border CornerRadius="50" 
+                        Height="70"
+                        Width="70"
+                        BorderThickness="0"
+                        Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        x:Name="SendButtonColor"
+                        Margin="0 0 30 15">
+                    <Button Background="Transparent" 
+                            Click="ButtonSend"
+                            Style="{StaticResource System}">
+                        <Image Source="/Images/Social/sent.png"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="12 0 0 0"/>
+                    </Button>
+                </Border>
+            </Grid>
         </StackPanel>
     </Grid>
 </UserControl>

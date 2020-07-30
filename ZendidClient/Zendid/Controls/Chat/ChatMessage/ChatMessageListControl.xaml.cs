@@ -48,14 +48,24 @@ namespace Zendid.Chat.ChatMessage
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter)
             {
-                if(TextBox.Text != null || TextBox.Text != "")
-                {
-                    SingletonModel.Instance.SendRequest(TextBox.Text);
-                    TextBox.Text = "";
-                }
+                SendMessage();
             }
+        }
+
+        private void SendMessage()
+        {
+            if (TextBox.Text != null && TextBox.Text != "")
+            {
+                SingletonModel.Instance.SendRequest(TextBox.Text);
+                TextBox.Text = "";
+            }
+        }
+
+        private void ButtonSend(object sender, RoutedEventArgs e)
+        {
+            SendMessage();
         }
     }
 }
