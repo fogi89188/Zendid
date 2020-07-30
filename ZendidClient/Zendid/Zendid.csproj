@@ -130,6 +130,16 @@
     <Compile Include="..\..\Commons\RegisterResponse.cs">
       <Link>Models\RegisterResponse.cs</Link>
     </Compile>
+    <Compile Include="Controls\Chat\ChatListControl.xaml.cs">
+      <DependentUpon>ChatListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Chat\ChatListItemControl.xaml.cs">
+      <DependentUpon>ChatListItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Chat\ChatListDesignModel.cs" />
+    <Compile Include="Controls\SideMenuControl.xaml.cs">
+      <DependentUpon>SideMenuControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />
     <Compile Include="Models\DatabaseModel.cs" />
@@ -138,6 +148,9 @@
     <Compile Include="ValueConverters\BaseValueConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Base\RelayCommandViewModel.cs" />
+    <Compile Include="Controls\Chat\ChatListItemDesignModel.cs" />
+    <Compile Include="ViewModels\ChatListItemViewModel.cs" />
+    <Compile Include="ViewModels\ChatListViewModel.cs" />
     <Compile Include="ViewModels\LoginControllerViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />
     <Compile Include="Views\ChatView.xaml.cs">
@@ -149,6 +162,18 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Chat\ChatListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Chat\ChatListItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SideMenuControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

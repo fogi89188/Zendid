@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Zendid.Views
+namespace Zendid
 {
     /// <summary>
-    /// Interaction logic for ChatView.xaml
+    /// Interaction logic for SideMenuControl.xaml
     /// </summary>
-    public partial class ChatView : Page
+    public partial class SideMenuControl : UserControl
     {
-        public ChatView()
+        public SideMenuControl()
         {
             InitializeComponent();
-        }
-
-        private void SideMenuControl_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
