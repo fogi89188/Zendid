@@ -38,7 +38,7 @@ namespace ZendidServer.Controllers
             await DeleteExpiredTokens();
 
             response.TimeOfLastUpdate = DateTime.Now;
-
+            List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
             var messages = _context.Messages.Where(x => x.SendTime > request.TimeOfLastUpdate).Select(x => new ZendidCommons.Message
             {
                 MessageStr = x.MessageStr,
@@ -46,11 +46,10 @@ namespace ZendidServer.Controllers
                 Time = x.SendTime
             }).ToList();
 
-            if (messages != null)
-            {
-                response.Status = "success";
-                response.Messages = messages;
-            }
+            response.Status = "success";
+            response.Messages = messages;
+            response.Users = users;
+
             return response;
         }
 
@@ -82,6 +81,7 @@ namespace ZendidServer.Controllers
 
             response.TimeOfLastUpdate = DateTime.Now;
 
+            List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
             var messages = _context.Messages.Where(x => x.SendTime > request.TimeOfLastUpdate).Select(x => new ZendidCommons.Message
             {
                 MessageStr = x.MessageStr,
@@ -89,11 +89,10 @@ namespace ZendidServer.Controllers
                 Time = x.SendTime
             }).ToList();
 
-            if (messages != null)
-            {
-                response.Status = "success";
-                response.Messages = messages;
-            }
+            response.Status = "success";
+            response.Messages = messages;
+            response.Users = users;
+
             return response;
         }
     }
