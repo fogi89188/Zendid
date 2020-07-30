@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Zendid.Chat;
+using Zendid.Models;
 using Zendid.ViewModels.Base;
+using ZendidCommons;
 
 namespace Zendid.ViewModels
 {
@@ -13,6 +15,6 @@ namespace Zendid.ViewModels
     /// </summary>
     class ChatMessageViewModel : BaseViewModel
     {
-        public List<ChatMessageListItemViewModel> Item { get; set; }
+        public ICollection<Message> Item = SingletonModel.Messages;
     }
 }

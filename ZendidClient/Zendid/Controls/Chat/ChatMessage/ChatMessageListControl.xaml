@@ -7,7 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid DataContext="{x:Static local1:ChatMessageListDesignModel.Instance}">
+        <StackPanel>
+            <Grid DataContext="{x:Static local1:ChatMessageListDesignModel.Instance}">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <ItemsControl ItemsSource="{Binding Item}">
                     <ItemsControl.ItemTemplate>
@@ -18,5 +19,11 @@
                 </ItemsControl>
             </ScrollViewer>
         </Grid>
+            <Button Content="Load" 
+                    HorizontalAlignment="Center"
+                    Click="Load">
+                
+            </Button>
+        </StackPanel>
     </Grid>
 </UserControl>

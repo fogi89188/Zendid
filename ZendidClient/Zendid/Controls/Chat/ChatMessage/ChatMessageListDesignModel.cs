@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zendid.Models;
 using Zendid.ViewModels;
 
 namespace Zendid.Chat
@@ -19,31 +20,7 @@ namespace Zendid.Chat
 
         public ChatMessageListDesignModel()
         {
-            Item = new List<ChatMessageListItemViewModel>
-            {
-                // chat list item list add
-                new ChatMessageListItemViewModel
-                {
-                    SenderName = "Viktor",
-                    MessageSentTime = DateTimeOffset.UtcNow,
-                    Message = "This is now the new message!"
-
-                },
-                new ChatMessageListItemViewModel
-                {
-                    SenderName = "Viktor",
-                    MessageSentTime = DateTimeOffset.UtcNow,
-                    Message = "This is now the new message!"
-
-                },
-                new ChatMessageListItemViewModel
-                {
-                    SenderName = "Viktor",
-                    MessageSentTime = DateTimeOffset.UtcNow,
-                    Message = "This is now the new message!"
-
-                },
-            };
+            Item = SingletonModel.Messages;
         }
 
         #endregion

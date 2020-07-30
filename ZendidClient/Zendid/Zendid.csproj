@@ -115,6 +115,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="..\..\Commons\ChatUpdateRequest.cs">
+      <Link>Models\ChatUpdateRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\ChatUpdateResponse.cs">
+      <Link>Models\ChatUpdateResponse.cs</Link>
+    </Compile>
     <Compile Include="..\..\Commons\ErrorCodesEnum.cs">
       <Link>ErrorCodesEnum.cs</Link>
     </Compile>
@@ -123,6 +129,15 @@
     </Compile>
     <Compile Include="..\..\Commons\LoginResponse.cs">
       <Link>Models\LoginResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\Message.cs">
+      <Link>Models\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\MessageSendRequest.cs">
+      <Link>Models\MessageSendRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Commons\MessageSendResponse.cs">
+      <Link>Models\MessageSendResponse.cs</Link>
     </Compile>
     <Compile Include="..\..\Commons\RegisterRequest.cs">
       <Link>Models\RegisterRequest.cs</Link>
@@ -146,6 +161,7 @@
     <Compile Include="Controls\SideMenuControl.xaml.cs">
       <DependentUpon>SideMenuControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\SingletonModel.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />
     <Compile Include="Models\DatabaseModel.cs" />

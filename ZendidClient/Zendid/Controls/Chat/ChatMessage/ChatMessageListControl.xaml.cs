@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Zendid.Models;
+using ZendidCommons;
 
 namespace Zendid.Chat.ChatMessage
 {
@@ -23,6 +25,11 @@ namespace Zendid.Chat.ChatMessage
         public ChatMessageListControl()
         {
             InitializeComponent();
+        }
+
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            SingletonModel.Instance.UpdateRequest();
         }
     }
 }
