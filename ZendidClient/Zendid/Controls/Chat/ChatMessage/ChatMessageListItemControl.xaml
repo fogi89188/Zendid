@@ -9,7 +9,7 @@
              mc:Ignorable="d"  d:DesignWidth="400">
     <Border Padding="5" Background="Transparent"
             d:DataContext="{x:Static local:ChatMessageListItemDesignModel.Instance}">
-        <Grid Background="Red">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="5*"/>
@@ -23,7 +23,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="{Binding SenderName}"
+                <TextBlock Text="{Binding UserSender}"
                            x:Name="UsernameTextDisplay"
                            Foreground="White"
                            FontSize="15"
@@ -32,7 +32,7 @@
                 <TextBlock Grid.Column="1" 
                            HorizontalAlignment="Left"
                            Margin="10 0 0 0"
-                           Text="{Binding MessageSentTime, Converter={local1:TimeToDisplayTimeConverter}}"
+                           Text="{Binding Time, Converter={local1:TimeToDisplayTimeConverter}}"
                            x:Name="TimeTextDisplay"
                            Foreground="White"
                            VerticalAlignment="Bottom"
@@ -48,7 +48,7 @@
                     HorizontalAlignment="Left"
                     Width="Auto">
                 <TextBlock Margin="10 0 10 0" 
-                           Text="{Binding Message}" 
+                           Text="{Binding MessageStr}" 
                            Style="{StaticResource Main3}" 
                            Foreground="Black"
                            TextWrapping="Wrap"/>

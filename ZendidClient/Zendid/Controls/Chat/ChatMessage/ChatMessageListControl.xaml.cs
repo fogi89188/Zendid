@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Zendid.Models;
 using ZendidCommons;
+using Zendid.ViewModels;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace Zendid.Chat.ChatMessage
 {
@@ -29,6 +32,7 @@ namespace Zendid.Chat.ChatMessage
 
         private void Load(object sender, RoutedEventArgs e)
         {
+
             SingletonModel.Instance.UpdateRequest();
             ExtensionMethods.Refresh(this);
         }

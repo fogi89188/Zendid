@@ -1,6 +1,7 @@
 ﻿using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -8,17 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Interop;
 using System.Windows.Media.Media3D;
 using Zendid.Chat;
+using Zendid.ViewModels;
+using Zendid.ViewModels.Base;
 using ZendidCommons;
 
 namespace Zendid.Models
 {
-    class SingletonModel
+    class SingletonModel : ChatMessageViewModel
     {
         private static SingletonModel instance = new SingletonModel();
 
         public static string token = "";
         public static DateTime timeOfLastUpdate = DateTime.Now;
-        private static List<ZendidCommons.Message> messages;
+        private static ObservableCollection<ZendidCommons.Message> messages = new ObservableCollection<ZendidCommons.Message>();
 
         static SingletonModel()
         {
@@ -30,7 +33,8 @@ namespace Zendid.Models
         }
 
         public static SingletonModel Instance { get { return instance; } set { instance = value; } }
-        public static List<ZendidCommons.Message> Messages { get => messages; set => messages = value; }
+
+        public static ObservableCollection<ZendidCommons.Message> Messages { get => messages; set { messages = value;  } }
 
         public async void UpdateRequest()
         {
@@ -44,8 +48,12 @@ namespace Zendid.Models
                 ("https://zendid.in.kutiika.net/chat/update", chatUpdateRequest);
             if (res.Status == "success")
             {
-                SingletonModel.Messages = res.Messages;
+                foreach(ZendidCommons.Message message in res.Messages)
+                {
+                    SingletonModel.Messages.Add(message);
+                }
                 SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
+                Item = SingletonModel.Messages;
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace Zendid.Chat
 
         public ChatListDesignModel()
         {
-            Items = new List<ChatListItemViewModel>
+            Items = new ObservableCollection<ChatListItemViewModel>
             {
                 // chat list item list add
                 new ChatListItemViewModel

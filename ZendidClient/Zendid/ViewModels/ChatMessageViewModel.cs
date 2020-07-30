@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Zendid.ViewModels
     /// </summary>
     class ChatMessageViewModel : BaseViewModel
     {
-        public List<Message> Item { get { return SingletonModel.Messages; } set { SingletonModel.Messages = value; } }
+        public ObservableCollection<Message> Item { get; set; }
 
     }
 }

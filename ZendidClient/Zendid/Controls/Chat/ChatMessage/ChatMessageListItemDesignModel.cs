@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Renci.SshNet.Messages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Zendid.ViewModels;
+using ZendidCommons;
 
 namespace Zendid.Chat
 {
-    class ChatMessageListItemDesignModel : ChatMessageListItemViewModel
+    class ChatMessageListItemDesignModel : ZendidCommons.Message
     {
         #region Singleton
 
@@ -19,9 +21,9 @@ namespace Zendid.Chat
 
         public ChatMessageListItemDesignModel()
         {
-            SenderName = "userName";
-            Message = "message";
-            MessageSentTime = DateTimeOffset.UtcNow;
+            UserSender = "userName";
+            MessageStr = "message";
+            Time = DateTimeOffset.UtcNow;
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using ZendidCommons;
 
 namespace Zendid.Chat
 {
-    class ChatMessageListDesignModel : ChatMessageViewModel
+    class ChatMessageListDesignModel : ChatMessageViewModel, INotifyPropertyChanged
     {
         #region Singleton
 
@@ -22,11 +23,6 @@ namespace Zendid.Chat
 
         public ChatMessageListDesignModel()
         {
-            ZendidCommons.Message meseg = new ZendidCommons.Message();
-            meseg.MessageStr = "lets test this thing";
-            meseg.Time = DateTime.Now;
-            meseg.UserSender = "test";
-            SingletonModel.Messages.Add(meseg);
             Item = SingletonModel.Messages;
         }
 
