@@ -8,6 +8,7 @@ namespace ZendidCommons
     public class Message
     {
         public string UserSender { get; set; }
+
         public string MessageStr { get; set; }
         public DateTime Time { get; set; }
     }
