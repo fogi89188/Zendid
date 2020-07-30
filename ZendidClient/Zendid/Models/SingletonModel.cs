@@ -48,9 +48,30 @@ namespace Zendid.Models
                 ("https://zendid.in.kutiika.net/chat/update", chatUpdateRequest);
             if (res.Status == "success")
             {
-                foreach(ZendidCommons.Message message in res.Messages)
+                foreach (ZendidCommons.Message message in res.Messages)
                 {
                     SingletonModel.Messages.Add(message);
+                }
+                SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
+                Item = SingletonModel.Messages;
+            }
+        }
+        public async void SendRequest(string message)
+        {
+            // request a chat update
+            MessageSendRequest messageRequest = new MessageSendRequest
+            {
+                Token = SingletonModel.token,
+                MessageStr = message,
+                TimeOfLastUpdate = SingletonModel.timeOfLastUpdate
+            };
+            var res = await ApiClient.RequestServerPost<MessageSendRequest, MessageSendResponse>
+                ("https://zendid.in.kutiika.net/chat/sendmessage", messageRequest);
+            if (res.Status == "success")
+            {
+                foreach (ZendidCommons.Message item in res.Messages)
+                {
+                    SingletonModel.Messages.Add(item);
                 }
                 SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
                 Item = SingletonModel.Messages;

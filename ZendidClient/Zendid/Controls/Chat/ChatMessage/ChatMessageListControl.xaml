@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel VerticalAlignment="Bottom">
-            <Grid x:Name="myGrid" VerticalAlignment="Bottom" 
+            <Grid x:Name="myGrid"  VerticalAlignment="Bottom" 
                 DataContext="{x:Static local1:ChatMessageListDesignModel.Instance}">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ItemsControl Visibility="Visible" ItemsSource="{Binding Item}">
@@ -29,6 +29,8 @@
 
             </Button>
             <TextBox VerticalAlignment="Bottom"
+                     Keyboard.KeyDown="TextBox_KeyDown"
+                     x:Name="TextBox"
                      Text="" Style="{StaticResource Credentials}"
                      Margin="30 0 30 30">
                 <TextBox.InputBindings>

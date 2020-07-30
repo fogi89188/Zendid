@@ -165,7 +165,6 @@
     <Compile Include="Models\SingletonModel.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="Models\ApplicationPageModel.cs" />
-    <Compile Include="Models\DatabaseModel.cs" />
     <Compile Include="Services\LoggingHandler.cs" />
     <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
     <Compile Include="ValueConverters\BaseValueConverter.cs" />

@@ -17,6 +17,7 @@ using ZendidCommons;
 using Zendid.ViewModels;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Windows.Media.TextFormatting;
 
 namespace Zendid.Chat.ChatMessage
 {
@@ -36,9 +37,17 @@ namespace Zendid.Chat.ChatMessage
             SingletonModel.Instance.UpdateRequest();
             ExtensionMethods.Refresh(this);
         }
-        void Refresh(object sender, RoutedEventArgs e)
-        {
 
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                if(TextBox.Text != null || TextBox.Text != "")
+                {
+                    SingletonModel.Instance.SendRequest(TextBox.Text);
+                    TextBox.Text = "";
+                }
+            }
         }
     }
 }

@@ -138,8 +138,6 @@ namespace Zendid.ViewModels
 
         private void FullCloseCommand()
         {
-            DatabaseModel database = DatabaseModel.Instance;
-            DatabaseModel.connection.Close();
             mWindow.Close();
         }
 
