@@ -3,7 +3,7 @@ Zendid is a chatting platform for everyone!
 Just log in and start chatting with people all over the world in one singular chat room!
 
 ## Installation
-1. Download the ZendidRelease1.0.zip file
+1. Download the ZendidRelease1.1.zip file
 2. Extract the files into a folder of your choosing.
 3. [Optional] Make a shortcut of the Zendid.exe file and place it wherever to your choosing.
 4. Enjoy! You have successfully installed Zendid!
