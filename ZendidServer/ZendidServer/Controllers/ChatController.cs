@@ -34,6 +34,10 @@ namespace ZendidServer.Controllers
                 response.ErrorCode = ZendidErrorCodes.TokenExpired;
                 return response;
             }
+            else
+            {
+                _context.Tokens.FirstOrDefault(x => x.TokenValue == request.Token).ExpiresAt = DateTime.Now.AddSeconds(30);
+            }
 
             await DeleteExpiredTokens();
 
@@ -43,11 +47,11 @@ namespace ZendidServer.Controllers
                 .Where(x => x.SendTime > request.TimeOfLastUpdate)
                 .OrderBy(x => x.SendTime)
                 .Select(x => new ZendidCommons.Message
-            {
-                MessageStr = x.MessageStr,
-                UserSender = x.UserName,
-                Time = x.SendTime
-            }).ToList();
+                {
+                    MessageStr = x.MessageStr,
+                    UserSender = x.UserName,
+                    Time = x.SendTime
+                }).ToList();
 
             response.Status = "success";
             response.Messages = messages;
@@ -71,6 +75,10 @@ namespace ZendidServer.Controllers
                 response.ErrorCode = ZendidErrorCodes.TokenExpired;
                 return response;
             }
+            else
+            {
+                _context.Tokens.FirstOrDefault(x => x.TokenValue == request.Token).ExpiresAt = DateTime.Now.AddSeconds(30);
+            }
 
             await DeleteExpiredTokens();
 
@@ -89,11 +97,11 @@ namespace ZendidServer.Controllers
                 .Where(x => x.SendTime > request.TimeOfLastUpdate)
                 .OrderBy(x => x.SendTime)
                 .Select(x => new ZendidCommons.Message
-            {
-                MessageStr = x.MessageStr,
-                UserSender = x.UserName,
-                Time = x.SendTime
-            }).ToList();
+                {
+                    MessageStr = x.MessageStr,
+                    UserSender = x.UserName,
+                    Time = x.SendTime
+                }).ToList();
 
             response.Status = "success";
             response.Messages = messages;

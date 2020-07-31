@@ -77,7 +77,7 @@ namespace ZendidServer.Controllers
             {
                 TokenValue = token,
                 User = user,
-                ExpiresAt = DateTime.Now.AddMinutes(30)
+                ExpiresAt = DateTime.Now.AddSeconds(30)
             });
             return token;
         }
