@@ -56,14 +56,15 @@ namespace ZendidServer.Controllers
                     UserName = request.UserName,
                     Password = request.Password,
                 };
-                var loginResponse = await this.Login(new LoginRequest{
+                
+                await _context.SaveChangesAsync();
+                var loginResponse = await this.Login(new LoginRequest
+                {
                     UserName = user.UserName,
                     Password = user.Password
                 });
                 response.Status = loginResponse.Status;
                 response.Token = loginResponse.Token;
-                
-                await _context.SaveChangesAsync();
             }
             else
             {
