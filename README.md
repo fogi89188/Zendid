@@ -32,3 +32,6 @@ Email - viktor.petrov8828@gmail.com
 Nikola Pavlovski - Server
 Github: [niksan005](https://github.com/niksan005)  
 Email - nikola.j.pavlovski@gmail.com  
+
+### Thank you for choosing Zendid!
+#### *Send it with Zendid!*
