@@ -56,8 +56,12 @@ namespace ZendidServer.Controllers
                     UserName = request.UserName,
                     Password = request.Password,
                 };
-                response.Status = "success";
-                response.Token = GenerateUserToken(user);
+                var loginResponse = await this.Login(new LoginRequest{
+                    UserName = user.UserName,
+                    Password = user.Password
+                });
+                response.Status = loginResponse.Status;
+                response.Token = loginResponse.Token;
                 
                 await _context.SaveChangesAsync();
             }
