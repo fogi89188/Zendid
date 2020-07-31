@@ -52,7 +52,6 @@ namespace Zendid.Views
             var res = await ApiClient.RequestServerPost<RegisterRequest, RegisterResponse>
                 ("https://zendid.in.kutiika.net/account/register", registerRequest);
             SingletonModel.token = res.Token;
-            SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
             //("https://localhost:44373/account/register", loginRequest).Result;
             if (res.Status == "success")
             {

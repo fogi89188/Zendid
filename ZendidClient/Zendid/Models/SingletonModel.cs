@@ -22,7 +22,6 @@ namespace Zendid.Models
         private static SingletonModel instance = new SingletonModel();
 
         public static string token = "";
-        public static DateTime timeOfLastUpdate = DateTime.Now;
         private static ObservableCollection<ZendidCommons.Message> messages = new ObservableCollection<ZendidCommons.Message>();
         public static ObservableCollection<string> Users = new ObservableCollection<string>();
 
@@ -44,8 +43,7 @@ namespace Zendid.Models
             // request a chat update
             ChatUpdateRequest chatUpdateRequest = new ChatUpdateRequest
             {
-                Token = SingletonModel.token,
-                TimeOfLastUpdate = SingletonModel.timeOfLastUpdate
+                Token = SingletonModel.token
             };
             var res = await ApiClient.RequestServerPost<ChatUpdateRequest, ChatUpdateResponse>
                 ("https://zendid.in.kutiika.net/chat/update", chatUpdateRequest);
@@ -55,7 +53,6 @@ namespace Zendid.Models
                 {
                     SingletonModel.Messages.Add(message);
                 }
-                SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
                 ObservableCollection<string> myCollection = new ObservableCollection<string>(res.Users);
                 SingletonModel.Users = myCollection;
                 Items = SingletonModel.Users;
@@ -70,8 +67,7 @@ namespace Zendid.Models
             MessageSendRequest messageRequest = new MessageSendRequest
             {
                 Token = SingletonModel.token,
-                MessageStr = message,
-                TimeOfLastUpdate = SingletonModel.timeOfLastUpdate
+                MessageStr = message
             };
             var res = await ApiClient.RequestServerPost<MessageSendRequest, MessageSendResponse>
                 ("https://zendid.in.kutiika.net/chat/sendmessage", messageRequest);
@@ -81,7 +77,6 @@ namespace Zendid.Models
                 {
                     SingletonModel.Messages.Add(item);
                 }
-                SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
                 ObservableCollection<string> myCollection = new ObservableCollection<string>(res.Users);
                 SingletonModel.Users = myCollection;
                 Items = SingletonModel.Users;

@@ -9,6 +9,5 @@ namespace ZendidCommons
     {
         public string Status { get; set; }
         public string Token { get; set; }
-        public DateTime ServerTime { get; set; }
     }
 }

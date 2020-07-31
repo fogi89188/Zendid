@@ -28,6 +28,7 @@ namespace ZendidServer.Controllers
                 Status = "fail",
                 ErrorCode = ZendidErrorCodes.OK
             };
+            await DeleteExpiredTokens();
             var user = await GetUserByToken(request.Token);
             if (user == null)
             {
@@ -36,15 +37,15 @@ namespace ZendidServer.Controllers
             }
             else
             {
-                _context.Tokens.FirstOrDefault(x => x.TokenValue == request.Token).ExpiresAt = DateTime.Now.AddSeconds(30);
+                _context.Tokens.FirstOrDefault(x => x.TokenValue == request.Token).ExpiresAt = DateTime.Now.AddSeconds(10);
             }
 
-            await DeleteExpiredTokens();
+            var timeoflastupdate = user.Tokens.Single(x => x.TokenValue == request.Token);
 
-            response.TimeOfLastUpdate = DateTime.Now;
+            var timeNow= DateTime.Now;
             List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
             var messages = _context.Messages
-                .Where(x => x.SendTime > request.TimeOfLastUpdate)
+                .Where(x => x.SendTime > timeoflastupdate.TimeOfLastUpdate)
                 .OrderBy(x => x.SendTime)
                 .Select(x => new ZendidCommons.Message
                 {
@@ -52,6 +53,8 @@ namespace ZendidServer.Controllers
                     UserSender = x.UserName,
                     Time = x.SendTime
                 }).ToList();
+            timeoflastupdate.TimeOfLastUpdate = timeNow;
+            await _context.SaveChangesAsync();
 
             response.Status = "success";
             response.Messages = messages;
@@ -69,6 +72,7 @@ namespace ZendidServer.Controllers
                 Status = "fail",
                 ErrorCode = ZendidErrorCodes.OK
             };
+            await DeleteExpiredTokens();
             var user = await GetUserByToken(request.Token);
             if (user == null)
             {
@@ -80,7 +84,6 @@ namespace ZendidServer.Controllers
                 _context.Tokens.FirstOrDefault(x => x.TokenValue == request.Token).ExpiresAt = DateTime.Now.AddSeconds(30);
             }
 
-            await DeleteExpiredTokens();
 
             _context.Messages.Add(new Data.Models.Message
             {
@@ -90,11 +93,13 @@ namespace ZendidServer.Controllers
             });
             await _context.SaveChangesAsync();
 
-            response.TimeOfLastUpdate = DateTime.Now;
+            var timeoflastupdate = user.Tokens.Single(x => x.TokenValue == request.Token);
+
+            var timeNow = DateTime.Now;
 
             List<string> users = _context.Users.Where(x => x.Tokens.Any()).Select(x => x.UserName).OrderBy(x => x).ToList();
             var messages = _context.Messages
-                .Where(x => x.SendTime > request.TimeOfLastUpdate)
+                .Where(x => x.SendTime > timeoflastupdate.TimeOfLastUpdate)
                 .OrderBy(x => x.SendTime)
                 .Select(x => new ZendidCommons.Message
                 {
@@ -102,6 +107,8 @@ namespace ZendidServer.Controllers
                     UserSender = x.UserName,
                     Time = x.SendTime
                 }).ToList();
+            timeoflastupdate.TimeOfLastUpdate = timeNow;
+            await _context.SaveChangesAsync();
 
             response.Status = "success";
             response.Messages = messages;

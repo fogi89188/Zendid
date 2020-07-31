@@ -14,6 +14,5 @@ namespace ZendidCommons
         public List<Message> Messages { get; set; }
         public List<string> Users { get; set; }
 
-        public DateTime TimeOfLastUpdate { get; set; }
     }
 }

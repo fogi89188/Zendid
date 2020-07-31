@@ -11,7 +11,6 @@ namespace ZendidCommons
 
         public string MessageStr { get; set; }
 
-        public DateTime TimeOfLastUpdate { get; set; }
 
     }
 }

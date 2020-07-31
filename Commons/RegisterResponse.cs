@@ -10,6 +10,5 @@ namespace ZendidCommons
         public string Status { get; set; }
         public ZendidErrorCodes ErrorCode { get; set; }
         public string Token { get; set; }
-        public DateTime TimeOfLastUpdate { get; set; }
     }
 }
