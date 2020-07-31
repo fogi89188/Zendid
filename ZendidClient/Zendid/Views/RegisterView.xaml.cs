@@ -55,7 +55,7 @@ namespace Zendid.Views
             //("https://localhost:44373/account/register", loginRequest).Result;
             if (res.Status == "success")
             {
-                this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
+                this.NavigationService.Navigate(new Uri("Views/ChatView.xaml", UriKind.Relative));
             }
             else
             {
