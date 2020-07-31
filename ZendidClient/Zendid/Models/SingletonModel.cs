@@ -58,6 +58,7 @@ namespace Zendid.Models
                 SingletonModel.timeOfLastUpdate = res.TimeOfLastUpdate;
                 ObservableCollection<string> myCollection = new ObservableCollection<string>(res.Users);
                 SingletonModel.Users = myCollection;
+                Items = SingletonModel.Users;
                 Item = SingletonModel.Messages;
             }
         }
